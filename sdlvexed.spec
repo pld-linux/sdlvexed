@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Clone of the classic PalmOS game Vexed
-Summary(pl):	Gra Vexed bazujaca na wersji z systemu PalmOS
+Summary(pl):	Gra Vexed bazuj±ca na wersji z systemu PalmOS
 Name:		vexed
 Version:	0.5
 Release:	0.1
@@ -8,20 +8,24 @@ License:	GPL
 Group:		X11/Applications/Games
 # Source0-md5:	9fb89127d90d081e215e6d47b2579669
 Source0:	http://apcoh.org/~krzynio/%{name}.tar.bz2
-BuildRequires:	perl >= 1:5.8.0
+BuildRequires:	perl-base >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	perl-SDL >= 1.19
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 SDL Vexed is a puzzle game written in Perl-SDL. It is a clone of the
-classic PalmOS game Vexed
+classic PalmOS game Vexed.
+
+%description -l pl
+SDL Vexed to uk³adanka napisana w Perl-SDL. Jest klonem klasycznej gry
+Vexed z PalmOS-a.
 
 %prep
 %setup -q -n %{name}
 
 %build
-perl -pi -e "s/\$PREFIX\='.'/\$PREFIX\='\/usr\/share\/vexed'/" vexed.pl
+%{__perl} -pi -e "s/\$PREFIX\='.'/\$PREFIX\='\/usr\/share\/vexed'/" vexed.pl
 
 %install
 rm -rf $RPM_BUILD_ROOT
