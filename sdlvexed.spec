@@ -3,7 +3,7 @@ Summary:	Clone of the classic PalmOS game Vexed
 Summary(pl):	Gra Vexed bazuj±ca na wersji z systemu PalmOS
 Name:		vexed
 Version:	0.5
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://apcoh.org/~krzynio/%{name}.tar.bz2
