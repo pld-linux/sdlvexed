@@ -25,7 +25,7 @@ Vexed z PalmOS-a.
 %setup -q -n %{name}
 
 %build
-%{__perl} -pi -e "s/\$PREFIX\='.'/\$PREFIX\='\/usr\/share\/vexed'/" vexed.pl
+perl -pi -e "s/\$PREFIX\='\.'/\$PREFIX\='\/usr\/share\/vexed'/" vexed.pl
 
 %install
 rm -rf $RPM_BUILD_ROOT
