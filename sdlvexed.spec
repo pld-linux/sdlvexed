@@ -1,18 +1,19 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Clone of the classic PalmOS game Vexed
 Summary(pl):	Gra Vexed bazuj±ca na wersji z systemu PalmOS
-Name:		vexed
-Version:	0.5
+Name:		sdlvexed
+Version:	0.6
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://apcoh.org/~krzynio/%{name}.tar.bz2
-# Source0-md5:	9fb89127d90d081e215e6d47b2579669
+Source0:	http://core.segfault.pl/~krzynio/vexed/sdlvexed-%{version}.tar.bz2
+# Source0-md5:	5cc4afe52786e52a1b02d8057b0e25ec
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 BuildRequires:	perl-base >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	perl-SDL >= 1.19
+Obsoletes:	vexed
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -24,17 +25,17 @@ SDL Vexed to uk³adanka napisana w Perl-SDL. Jest klonem klasycznej gry
 Vexed z PalmOS-a.
 
 %prep
-%setup -q -n %{name}
+%setup -q
 
 %build
-%{__perl} -pi -e "s/\$PREFIX\='\.'/\$PREFIX\='\/usr\/share\/vexed'/" vexed.pl
+%{__perl} -pi -e "s/\$PREFIX\='\.'/\$PREFIX\='\/usr\/share\/sdlvexed'/" vexed
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_datadir}/%{name}/gfx,%{_datadir}/%{name}/levelpacks,%{_pixmapsdir}} \
 $RPM_BUILD_ROOT%{_desktopdir}
 
-install vexed.pl $RPM_BUILD_ROOT%{_bindir}
+install vexed $RPM_BUILD_ROOT%{_bindir}/sdlvexed
 install gfx/*  $RPM_BUILD_ROOT%{_datadir}/%{name}/gfx
 install levelpacks/* $RPM_BUILD_ROOT%{_datadir}/%{name}/levelpacks
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
