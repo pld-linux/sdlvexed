@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=vexed.pl
+Name=Vexed
 Comment=Clone of the classic PalmOS game Vexed
 Comment[pl]=Gra Vexed bazująca na wersji z systemu PalmOS
 Exec=vexed.pl
