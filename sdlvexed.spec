@@ -6,8 +6,10 @@ Version:	0.5
 Release:	0.1
 License:	GPL
 Group:		X11/Applications/Games
-# Source0-md5:	9fb89127d90d081e215e6d47b2579669
 Source0:	http://apcoh.org/~krzynio/%{name}.tar.bz2
+# Source0-md5:	9fb89127d90d081e215e6d47b2579669
+Source1:	%{name}.desktop
+Source2:	%{name}.png
 BuildRequires:	perl-base >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	perl-SDL >= 1.19
@@ -29,11 +31,14 @@ Vexed z PalmOS-a.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_datadir}/%{name}/gfx,%{_datadir}/%{name}/levelpacks}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_datadir}/%{name}/gfx,%{_datadir}/%{name}/levelpacks,%{_pixmapsdir}} \
+$RPM_BUILD_ROOT%{_desktopdir}
 
 install vexed.pl $RPM_BUILD_ROOT%{_bindir}
 install gfx/*  $RPM_BUILD_ROOT%{_datadir}/%{name}/gfx
 install levelpacks/* $RPM_BUILD_ROOT%{_datadir}/%{name}/levelpacks
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -43,3 +48,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING README README.pl
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
+%{_desktopdir}/%{name}.desktop
+%{_pixmapsdir}/*
