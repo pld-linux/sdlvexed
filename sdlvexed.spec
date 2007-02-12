@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Clone of the classic PalmOS game Vexed
-Summary(pl.UTF-8):   Gra Vexed bazująca na wersji z systemu PalmOS
+Summary(pl.UTF-8):	Gra Vexed bazująca na wersji z systemu PalmOS
 Name:		sdlvexed
 Version:	0.6
 Release:	1
